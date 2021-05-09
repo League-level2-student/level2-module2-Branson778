@@ -1,17 +1,11 @@
 package _04_animals_inheritance;
 
-public class Dog {
-	String name;
-	String furColor;
-	boolean isGirl;
-	
-	Dog(String name, String furColor, boolean isGirl) {
-		this.name=name;
-		this.furColor=furColor;
-		this.isGirl=isGirl;
-	}
-	
-	public void printName() {
+public class Animal {
+ String name;
+ String color;
+ Boolean isGirl;
+ 
+    public void printName() {
 		System.out.println("My name is "+name);
 	}
 	

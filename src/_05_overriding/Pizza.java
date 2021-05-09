@@ -15,7 +15,7 @@ import javax.swing.JLabel;
  * BUT they won't have the same code in them.
  * 
  * 1. Run the Runner Class to see what happens
- * 
+ * Done
  * 2. The 2 pizzas are the same...we are going to fix that
  * 	  Go to the PepperoniPizza class
  */
