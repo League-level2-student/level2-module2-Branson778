@@ -6,10 +6,14 @@
 class Segment {
 
 //Add x and y member variables. They will hold the corner location of each segment of the snake.
-
+int segX;
+int segY;
 
 // Add a constructor with parameters to initialize each variable.
-
+public Segment(int segX, int segY){
+  this.segX = segX;
+  this.segY = segY;
+}
 
 
 }

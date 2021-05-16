@@ -1,5 +1,6 @@
 package _06_overloading;
 
+import java.awt.Color;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
@@ -26,9 +27,9 @@ public class LeagueOptionPane {
 		JPanel panel = new JPanel();
 		JLabel label = new JLabel();
 		JLabel label2 = new JLabel();
-		//Icon why = loadImage("leauge.png");
+		ImageIcon why = loadImage("league.png");
 		label.setText(message);
-		//label2.setIcon(why);
+		label2.setIcon(why);
 		frame.add(panel);
 		panel.add(label2);
 		panel.add(label);
@@ -40,34 +41,68 @@ public class LeagueOptionPane {
 	}
 	
 	// 3. Call this method in the Runner class
-	
+	//done
 
 	// 4. Create another showMessageDialog() method that lets us also choose the Message and Title 
 	//    2 String parameters (one for the message and one for the title)
-	
+	public static void showMessageDialog(String message, String title){
+		JFrame frame = new JFrame();
+		JPanel panel = new JPanel();
+		JLabel label = new JLabel();
+		JLabel label2 = new JLabel();
+		ImageIcon why = loadImage("league.png");
+		label.setText(message);
+		label2.setIcon(why);
+		frame.add(panel);
+		panel.add(label2);
+		panel.add(label);
+		frame.setVisible(true);
+		frame.setTitle(title);
+		frame.pack();
+		frame.setLocationRelativeTo(null);
+	}
 	// 5. Call this method in the Runner class
-	
+	//done
 	
 	// 6. Create another showMessageDialog() method that lets us choose the Message, Title, and Image
 	//    3 String parameters (one for the message, one for the title, and one for the fileName)
-	
+	public static JPanel showMessageDialog(String message, String title, String image){
+		JFrame frame = new JFrame();
+		JPanel panel = new JPanel();
+		JLabel label = new JLabel();
+		JLabel label2 = new JLabel();
+		ImageIcon why = loadImage(image);
+		label.setText(message);
+		label2.setIcon(why);
+		frame.add(panel);
+		panel.add(label2);
+		panel.add(label);
+		frame.setVisible(true);
+		frame.setTitle(title);
+		frame.pack();
+		frame.setLocationRelativeTo(null);
+		return panel;
+	}
 	// 7. Call this method in the Runner class
-	
+	//done
 	// CHALLENGE: 
 		//	1. Create another showMessageDialog() method that lets us choose the Message, Title, Image, and Background Color
 		//     3 String parameters (one for the message, one for the title, and one for the fileName)
 		//	   1 Color parameter for the backgroundColor
-		//			
+					public static void showMessageDialog(String message, String title, String image, Color backgroundColor){
+						JPanel panel = showMessageDialog(message, title, image);
+						panel.setBackground(backgroundColor);
+					}
 		//	2. Change the return type of the 3rd showMessageDialog() method(the one right above) to JPanel
 		//	   Make sure to return your panel at the end of that method
-		//	
+		//	done
 		//	3. Call the showMessageDialog() method you just modified in this method
 		//	   Set the method equal to a JPanel
-		//	
+		//	done
 		//	4. Set the background of your panel to the backgroundColor parameter
-		//
+		//done
 		//	5. Call this method in the Runner class
-		//
+		// 
 		// WHY DID WE DO THIS? - because we were able to overload this method by calling one of the other methods inside of it
 	
 	
