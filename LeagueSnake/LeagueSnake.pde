@@ -76,6 +76,7 @@ void drawSnake() {
   //Draw the head of the snake followed by its tail
  fill(#237912);
   rect(head.segX,head.segY,10,10);
+  manageTail();
 }
 
 
@@ -103,7 +104,13 @@ void manageTail() {
 
 void checkTailCollision() {
   //If the snake crosses its own tail, shrink the tail back to one segment
-  
+ for(int i= 0; i < tail.size(); i++ )
+  if(head.segX == tail.get(i).segX && head.segY == tail.get(i).segY){
+    foodEaten = 0;
+    tail.clear();
+    tail.add(new Segment(head.segX, head.segY));
+    tail.remove(0);
+  }
 }
 
 
@@ -116,19 +123,19 @@ void checkTailCollision() {
 void keyPressed() {
   //Set the direction of the snake according to the arrow keys pressed
   if(key==CODED){
-    if(keyCode==UP){
+    if(keyCode==UP && direction != DOWN){
       direction = UP;
       print("UP");
     }
-    if(keyCode==DOWN){
+    if(keyCode==DOWN && direction != UP){
       direction = DOWN;
       print("DOWN");
     }
-    if(keyCode==LEFT){
+    if(keyCode==LEFT && direction != RIGHT){
       direction = LEFT;
       print("LEFT");
     }
-    if(keyCode==RIGHT){
+    if(keyCode==RIGHT && direction != LEFT){
       direction = RIGHT;
       print("RIGHT");
     }
@@ -158,13 +165,13 @@ void move() {
 
 void checkBoundaries() {
  //If the snake leaves the frame, make it reappear on the other side
- if(head.segX> 500){
+ if(head.segX>= 500){
    head.segX=0;
  }
  if(head.segX<0){
    head.segX=500;
  }
- if(head.segY>500){
+ if(head.segY>=500){
    head.segY=0;
  }
  if(head.segY<0){
@@ -179,6 +186,7 @@ void eat() {
  if(head.segX==foodX && head.segY==foodY){
    foodEaten++;
    dropFood();
+   tail.add(new Segment(head.segX, head.segY));
    print("eat");
  }
 }
